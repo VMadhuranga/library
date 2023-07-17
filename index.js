@@ -1,4 +1,10 @@
 // book objects should stored in array
-// create a function that takes user input and store in array
-
 let myLibrary = [];
+
+// create constructor to create book objects
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
