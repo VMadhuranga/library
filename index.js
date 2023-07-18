@@ -22,19 +22,19 @@ function displayBook(library) {
     for (let book of library) {
         bookTitle = document.createElement("h3");
         bookTitle.setAttribute("class", "title");
-        bookTitle.textContent = book.title;
+        bookTitle.textContent = `Title: ${book.title}`;
 
         bookAuthor = document.createElement("h3");
         bookAuthor.setAttribute("class", "author");
-        bookAuthor.textContent = book.author;
+        bookAuthor.textContent = `Author: ${book.author}`;
         
         bookPages = document.createElement("h3");
         bookPages.setAttribute("class", "pages");
-        bookPages.textContent = book.pages;
+        bookPages.textContent = `Pages: ${book.pages}`;
         
         bookRead = document.createElement("h3");
         bookRead.setAttribute("class", "read");
-        bookRead.textContent = book.read; 
+        bookRead.textContent = `Read: ${book.read}`; 
 
         bookCard = document.createElement("div");
         bookCard.setAttribute("class", "book-card");
