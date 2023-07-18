@@ -47,6 +47,14 @@ function displayBook(library) {
     }
 }
 
+// create a “NEW BOOK” button that brings up a form allowing users to input the details for the new book
+let newBookButton = document.querySelector(".header-container .button-new-book");
+let formModal = document.querySelector(".form-modal");
+
+newBookButton.addEventListener("click", () => {
+    formModal.showModal();
+});
+
 // this is for testing 
 addBookToLibrary("book1", "author1", 11, true);
 addBookToLibrary("book2", "author2", 12, false);

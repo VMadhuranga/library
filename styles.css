@@ -6,13 +6,13 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0 auto;
+    background-color: #e5e7eb;
 }
 
 header {
     background-color: white;
     padding: 20px;
-    box-shadow: 0 2px 5px lightgrey;
+    box-shadow: 0 5px 10px lightgrey;
     display: flex;
     justify-content: center;
 }
@@ -38,11 +38,21 @@ header .button-new-book {
     border-radius: 10px;
 }
 
+.form-modal {
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+.form-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .form-add-book {
     width: 250px;
     background-color: #e5e7eb;
     padding: 20px;
-    border-radius: 10px;
 }
 
 .form-add-book > h2 {
@@ -66,7 +76,6 @@ header .button-new-book {
     outline: none;
 }
 
-
 .form-add-book .read {
     display: flex;
     gap: 15px;
@@ -89,6 +98,17 @@ header .button-new-book {
     font-size: 1.2rem;
     font-weight: bold;
     background-color: #60a5fa;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+}
+
+.form-add-book .cancel button {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #f87171;
     color: white;
     padding: 10px;
     border: none;
