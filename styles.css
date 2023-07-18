@@ -116,7 +116,9 @@ header .button-new-book {
 }
 
 .book-container {
-    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
@@ -124,9 +126,10 @@ header .button-new-book {
 }
 
 .book-container .book-card {
+    background-color: white;
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid black;
+    box-shadow: 0 0 10px 5px lightgrey;
 }
 
 .book-container .book-card > :nth-child(1n):not(:last-child) {
