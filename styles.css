@@ -1,0 +1,39 @@
+* {
+    background-origin: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+}
+
+header {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px lightgrey;
+    display: flex;
+    justify-content: center;
+}
+
+.header-container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header .button-new-book {
+    color: white;
+    font-size: 1rem;
+    font-weight: bolder;
+    background-color: lightslategrey;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
