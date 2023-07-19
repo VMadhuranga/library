@@ -11,8 +11,10 @@ function Book(title, author, pages, read) {
 
 // create a function to create a new book using book constructor and store in my library array
 function addBookToLibrary(title, author, pages, read) {
-    let newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
+    if (title && author && pages) {
+        let newBook = new Book(title, author, pages, read);
+        myLibrary.push(newBook);
+    }
 }
 
 // create a function that loops through the my library array and displays each book on the page
@@ -50,10 +52,18 @@ function displayBook(library) {
 // create a “NEW BOOK” button that brings up a form allowing users to input the details for the new book
 let newBookButton = document.querySelector(".header-container .button-new-book");
 let formModal = document.querySelector(".form-modal");
+newBookButton.addEventListener("click", showFormModal);
 
-newBookButton.addEventListener("click", () => {
+let cancelBookButton = document.querySelector(".form-add-book #cancel-book");
+cancelBookButton.addEventListener("click", closeFormModal);
+
+function showFormModal() {
     formModal.showModal();
-});
+}
+
+function closeFormModal() {
+    formModal.close();
+}
 
 // this is for testing 
 addBookToLibrary("book1", "author1", 11, true);
