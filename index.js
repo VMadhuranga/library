@@ -1,7 +1,5 @@
-// book objects should stored in array
 let myLibrary = [];
 
-// create constructor to create book objects
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -9,37 +7,36 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-// create a function to create a new book using book constructor and store in my library array
 function addBookToLibrary(title, author, pages, read) {
     if (title && author && pages) {
         let newBook = new Book(title, author, pages, read);
         myLibrary.push(newBook);
-    }
+    } 
 }
 
-// create a function that loops through the my library array and displays each book on the page
 let bookContainer = document.querySelector(".book-container");
+
+let bookTitle = document.createElement("h3");
+bookTitle.setAttribute("class", "title");
+
+let bookAuthor = document.createElement("h3");
+bookAuthor.setAttribute("class", "author");
+
+let bookPages = document.createElement("h3");
+bookPages.setAttribute("class", "pages");
+
+let bookRead = document.createElement("h3");
+bookRead.setAttribute("class", "read");
+
+let bookCard = document.createElement("div");
+bookCard.setAttribute("class", "book-card");
 
 function displayBook(library) {
     for (let book of library) {
-        bookTitle = document.createElement("h3");
-        bookTitle.setAttribute("class", "title");
         bookTitle.textContent = `Title: ${book.title}`;
-
-        bookAuthor = document.createElement("h3");
-        bookAuthor.setAttribute("class", "author");
         bookAuthor.textContent = `Author: ${book.author}`;
-        
-        bookPages = document.createElement("h3");
-        bookPages.setAttribute("class", "pages");
         bookPages.textContent = `Pages: ${book.pages}`;
-        
-        bookRead = document.createElement("h3");
-        bookRead.setAttribute("class", "read");
         bookRead.textContent = `Read: ${book.read}`; 
-
-        bookCard = document.createElement("div");
-        bookCard.setAttribute("class", "book-card");
 
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
@@ -49,12 +46,11 @@ function displayBook(library) {
     }
 }
 
-// create a “NEW BOOK” button that brings up a form allowing users to input the details for the new book
 let newBookButton = document.querySelector(".header-container .button-new-book");
-let formModal = document.querySelector(".form-modal");
-newBookButton.addEventListener("click", showFormModal);
-
 let cancelBookButton = document.querySelector(".form-add-book #cancel-book");
+let formModal = document.querySelector(".form-modal");
+
+newBookButton.addEventListener("click", showFormModal);
 cancelBookButton.addEventListener("click", closeFormModal);
 
 function showFormModal() {
@@ -65,8 +61,21 @@ function closeFormModal() {
     formModal.close();
 }
 
-// this is for testing 
-addBookToLibrary("book1", "author1", 11, true);
-addBookToLibrary("book2", "author2", 12, false);
+let getBookTitle = document.querySelector(".form-add-book #title");
+let getBookAuthor = document.querySelector(".form-add-book #author");
+let getBookPages = document.querySelector(".form-add-book #pages");
+let addBookButton = document.querySelector(".form-add-book #add-book");
 
-displayBook(myLibrary);
+addBookButton.addEventListener("click", getBookData);
+
+function getBookData(event) {
+    event.preventDefault()
+
+    let setTitle = getBookTitle.value;
+    let setAuthor = getBookTitle.value;
+    let setPages = getBookTitle.value;
+
+    addBookToLibrary(setTitle, setAuthor, setPages, true);
+    displayBook(myLibrary);
+    closeFormModal();
+}
