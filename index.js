@@ -16,22 +16,22 @@ function addBookToLibrary(title, author, pages, read) {
 
 let bookContainer = document.querySelector(".book-container");
 
-let bookTitle = document.createElement("h3");
-bookTitle.setAttribute("class", "title");
-
-let bookAuthor = document.createElement("h3");
-bookAuthor.setAttribute("class", "author");
-
-let bookPages = document.createElement("h3");
-bookPages.setAttribute("class", "pages");
-
-let bookRead = document.createElement("h3");
-bookRead.setAttribute("class", "read");
-
-let bookCard = document.createElement("div");
-bookCard.setAttribute("class", "book-card");
-
 function displayBook(library) {
+    let bookTitle = document.createElement("h3");
+    bookTitle.setAttribute("class", "title");
+
+    let bookAuthor = document.createElement("h3");
+    bookAuthor.setAttribute("class", "author");
+
+    let bookPages = document.createElement("h3");
+    bookPages.setAttribute("class", "pages");
+
+    let bookRead = document.createElement("h3");
+    bookRead.setAttribute("class", "read");
+
+    let bookCard = document.createElement("div");
+    bookCard.setAttribute("class", "book-card");
+    
     for (let book of library) {
         bookTitle.textContent = `Title: ${book.title}`;
         bookAuthor.textContent = `Author: ${book.author}`;
@@ -64,18 +64,18 @@ function closeFormModal() {
 let getBookTitle = document.querySelector(".form-add-book #title");
 let getBookAuthor = document.querySelector(".form-add-book #author");
 let getBookPages = document.querySelector(".form-add-book #pages");
+let getBookRead = document.querySelector(".form-add-book #read");
 let addBookButton = document.querySelector(".form-add-book #add-book");
 
 addBookButton.addEventListener("click", getBookData);
 
 function getBookData(event) {
-    event.preventDefault()
-
     let setTitle = getBookTitle.value;
     let setAuthor = getBookTitle.value;
     let setPages = getBookTitle.value;
+    let setRead = getBookRead.checked;
 
-    addBookToLibrary(setTitle, setAuthor, setPages, true);
+    addBookToLibrary(setTitle, setAuthor, setPages, setRead);
     displayBook(myLibrary);
     closeFormModal();
 }
