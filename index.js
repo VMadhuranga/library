@@ -1,15 +1,24 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+}
+
+// check read status
+Book.prototype.readStatus = function(value) {
+    if (value) {
+        this.read = "Read";
+    } else {
+        this.read = "Not Read";
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
     if (title && author && pages) {
-        let newBook = new Book(title, author, pages, read);
+        let newBook = new Book(title, author, pages);
+        newBook.readStatus(read)
         myLibrary.push(newBook);
     } 
 }
@@ -69,10 +78,10 @@ let addBookButton = document.querySelector(".form-add-book #add-book");
 
 addBookButton.addEventListener("click", getBookData);
 
-function getBookData(event) {
+function getBookData() {
     let setTitle = getBookTitle.value;
-    let setAuthor = getBookTitle.value;
-    let setPages = getBookTitle.value;
+    let setAuthor = getBookAuthor.value;
+    let setPages = Number(getBookPages.value);
     let setRead = getBookRead.checked;
 
     addBookToLibrary(setTitle, setAuthor, setPages, setRead);
