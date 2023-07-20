@@ -6,7 +6,6 @@ function Book(title, author, pages) {
     this.pages = pages;
 }
 
-// check read status
 Book.prototype.readStatus = function(value) {
     if (value) {
         this.read = "Read";
@@ -38,6 +37,9 @@ function displayBook(library) {
     let bookRead = document.createElement("h3");
     bookRead.setAttribute("class", "read");
 
+    let removeBook = document.createElement("button");
+    removeBook.setAttribute("class", "remove-book-button");
+
     let bookCard = document.createElement("div");
     bookCard.setAttribute("class", "book-card");
     
@@ -45,14 +47,18 @@ function displayBook(library) {
         bookTitle.textContent = `Title: ${book.title}`;
         bookAuthor.textContent = `Author: ${book.author}`;
         bookPages.textContent = `Pages: ${book.pages}`;
-        bookRead.textContent = `Read: ${book.read}`; 
+        bookRead.textContent = `Read: ${book.read}`;
+        removeBook.textContent = "Remove";
 
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
         bookCard.appendChild(bookRead);
+        bookCard.appendChild(removeBook);
+        bookCard.setAttribute("data-book-index", library.indexOf(book))
         bookContainer.appendChild(bookCard);
     }
+    removeBookCard(removeBook);
 }
 
 let newBookButton = document.querySelector(".header-container .button-new-book");
@@ -87,4 +93,12 @@ function getBookData() {
     addBookToLibrary(setTitle, setAuthor, setPages, setRead);
     displayBook(myLibrary);
     closeFormModal();
+}
+
+function removeBookCard(value) {
+    value.addEventListener("click", function(e) {
+        let index = this.parentElement.dataset.bookIndex;
+        myLibrary.splice(index, 1);
+        this.parentElement.remove();
+    });
 }

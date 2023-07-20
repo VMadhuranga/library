@@ -135,3 +135,14 @@ header .button-new-book {
 .book-container .book-card > :nth-child(1n):not(:last-child) {
     margin-bottom: 10px;
 }
+
+.book-container .book-card .remove-book-button {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #f87171;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+}
