@@ -146,3 +146,14 @@ header .button-new-book {
     border: none;
     border-radius: 8px;
 }
+
+.book-container .book-card .read-status-button {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: lightslategray;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+}

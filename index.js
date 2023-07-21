@@ -8,9 +8,9 @@ function Book(title, author, pages) {
 
 Book.prototype.readStatus = function(value) {
     if (value) {
-        this.read = "Read";
+        this.read = "Done";
     } else {
-        this.read = "Not Read";
+        this.read = "In Progress";
     }
 }
 
@@ -34,11 +34,14 @@ function displayBook(library) {
     let bookPages = document.createElement("h3");
     bookPages.setAttribute("class", "pages");
 
-    let bookRead = document.createElement("h3");
-    bookRead.setAttribute("class", "read");
+    let bookReadStatus = document.createElement("h3");
+    bookReadStatus.setAttribute("class", "read");
 
-    let removeBook = document.createElement("button");
-    removeBook.setAttribute("class", "remove-book-button");
+    let changeReadStatusButton = document.createElement("button")
+    changeReadStatusButton.setAttribute("class", "read-status-button");
+
+    let removeBookButton = document.createElement("button");
+    removeBookButton.setAttribute("class", "remove-book-button");
 
     let bookCard = document.createElement("div");
     bookCard.setAttribute("class", "book-card");
@@ -47,18 +50,21 @@ function displayBook(library) {
         bookTitle.textContent = `Title: ${book.title}`;
         bookAuthor.textContent = `Author: ${book.author}`;
         bookPages.textContent = `Pages: ${book.pages}`;
-        bookRead.textContent = `Read: ${book.read}`;
-        removeBook.textContent = "Remove";
+        bookReadStatus.textContent = `Read Status: ${book.read}`;
+        removeBookButton.textContent = "Remove";
+        changeReadStatusButton.textContent = "Change Read Status";
 
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPages);
-        bookCard.appendChild(bookRead);
-        bookCard.appendChild(removeBook);
+        bookCard.appendChild(bookReadStatus);
+        bookCard.appendChild(changeReadStatusButton)
+        bookCard.appendChild(removeBookButton);
         bookCard.setAttribute("data-book-index", library.indexOf(book))
         bookContainer.appendChild(bookCard);
     }
-    removeBookCard(removeBook);
+    changeReadStatus(changeReadStatusButton);
+    removeBookCard(removeBookButton);
 }
 
 let newBookButton = document.querySelector(".header-container .button-new-book");
@@ -96,9 +102,22 @@ function getBookData() {
 }
 
 function removeBookCard(value) {
-    value.addEventListener("click", function(e) {
+    value.addEventListener("click", function() {
         let index = this.parentElement.dataset.bookIndex;
         myLibrary.splice(index, 1);
         this.parentElement.remove();
+    });
+}
+
+function changeReadStatus(value) {
+    value.addEventListener("click", function() {
+        let index = this.parentElement.dataset.bookIndex;
+        if (myLibrary[index].read === "In Progress") {
+            myLibrary[index].readStatus(myLibrary[index].read === "In Progress");
+            this.previousElementSibling.textContent = `Read Status: ${myLibrary[index].read}`;
+        } else {
+            myLibrary[index].readStatus(myLibrary[index].read === "In Progress");
+            this.previousElementSibling.textContent = `Read Status: ${myLibrary[index].read}`;
+        }
     });
 }
