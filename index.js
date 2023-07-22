@@ -17,7 +17,7 @@ Book.prototype.readStatus = function(value) {
 function addBookToLibrary(title, author, pages, read) {
     if (title && author && pages) {
         let newBook = new Book(title, author, pages);
-        newBook.readStatus(read)
+        newBook.readStatus(read);
         myLibrary.push(newBook);
     } 
 }
@@ -37,7 +37,7 @@ function displayBook(library) {
     let bookReadStatus = document.createElement("p");
     bookReadStatus.setAttribute("class", "read");
 
-    let changeReadStatusButton = document.createElement("button")
+    let changeReadStatusButton = document.createElement("button");
     changeReadStatusButton.setAttribute("class", "read-status-button");
 
     let removeBookButton = document.createElement("button");
