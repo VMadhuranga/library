@@ -25,16 +25,16 @@ function addBookToLibrary(title, author, pages, read) {
 let bookContainer = document.querySelector(".book-container");
 
 function displayBook(library) {
-    let bookTitle = document.createElement("h3");
+    let bookTitle = document.createElement("h2");
     bookTitle.setAttribute("class", "title");
 
-    let bookAuthor = document.createElement("h3");
+    let bookAuthor = document.createElement("p");
     bookAuthor.setAttribute("class", "author");
 
-    let bookPages = document.createElement("h3");
+    let bookPages = document.createElement("p");
     bookPages.setAttribute("class", "pages");
 
-    let bookReadStatus = document.createElement("h3");
+    let bookReadStatus = document.createElement("p");
     bookReadStatus.setAttribute("class", "read");
 
     let changeReadStatusButton = document.createElement("button")
@@ -47,7 +47,7 @@ function displayBook(library) {
     bookCard.setAttribute("class", "book-card");
     
     for (let book of library) {
-        bookTitle.textContent = `Title: ${book.title}`;
+        bookTitle.textContent = book.title;
         bookAuthor.textContent = `Author: ${book.author}`;
         bookPages.textContent = `Pages: ${book.pages}`;
         bookReadStatus.textContent = `Read Status: ${book.read}`;
