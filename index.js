@@ -1,16 +1,18 @@
 let myLibrary = [];
 
-function Book(title, author, pages) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-}
+class Book {
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+    }
 
-Book.prototype.readStatus = function(value) {
-    if (value) {
-        this.read = "Done";
-    } else {
-        this.read = "In Progress";
+    readStatus(value) {
+        if (value) {
+            this.read = "Done";
+        } else {
+            this.read = "In Progress";
+        }
     }
 }
 
