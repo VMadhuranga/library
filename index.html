@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
     <script src="./index.js" defer></script>
     <title>Library</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="header-container">
-            <h1>Library</h1>
-            <button class="button-new-book">New Book</button>
-        </div>
+      <div class="header-container">
+        <h1>Library</h1>
+        <button class="button-new-book">New Book</button>
+      </div>
     </header>
     <dialog class="form-modal">
-        <form class="form-add-book" action="#">
-            <h2>Add Book</h2>
-            <div class="title">
-                <input type="text" id="title" placeholder="Title">
-            </div>
-            <div class="author">
-                <input type="text" id="author" placeholder="Author">
-            </div>
-            <div class="pages">
-                <input type="number" id="pages" min="0" placeholder="Pages">
-            </div>
-            <div class="read">
-                <label for="read">Mark as read</label>
-                <input type="checkbox" id="read">
-            </div>
-            <div class="add-book">
-                <button id="add-book" type="button">Submit</button>
-            </div>
-            <div class="cancel-book">
-                <button id="cancel-book" type="button">Cancel</button>
-            </div>
-        </form>
+      <form class="form-add-book" action="#">
+        <h2>Add Book</h2>
+        <div class="title">
+          <input type="text" id="title" placeholder="Title" />
+        </div>
+        <div class="author">
+          <input type="text" id="author" placeholder="Author" />
+        </div>
+        <div class="pages">
+          <input type="number" id="pages" min="0" placeholder="Pages" />
+        </div>
+        <div class="read">
+          <label for="read">Mark as read</label>
+          <input type="checkbox" id="read" />
+        </div>
+        <div class="add-book">
+          <button id="add-book" type="button">Submit</button>
+        </div>
+        <div class="cancel-book">
+          <button id="cancel-book" type="button">Cancel</button>
+        </div>
+      </form>
     </dialog>
     <div class="book-container"></div>
-</body>
+  </body>
 </html>
